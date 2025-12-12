@@ -1,4 +1,4 @@
-# Streamlit
+# Streamlit app
 streamlit==1.27.0
 
 # Data processing
@@ -6,16 +6,13 @@ pandas==2.1.1
 numpy==1.26.0
 openpyxl==3.1.2
 
-# Speech-to-text
+# Audio and speech-to-text
 speechrecognition==3.9.0
 pydub==0.25.1
 
 # PDF handling
 pypdf==3.15.0
 
-# Machine learning (if you need it locally, optional for Streamlit Cloud)
-tensorflow-cpu==2.14.0
-
-# File upload and requests
+# File upload & requests
 python-multipart==0.0.6
 requests==2.32.0
