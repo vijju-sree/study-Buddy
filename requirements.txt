@@ -1,19 +1,9 @@
-# Streamlit
-streamlit==1.27.0
-
-# Data processing
-pandas==2.1.1
-numpy==1.26.0
-openpyxl==3.1.2
-
-# PDF & Word handling
-pypdf==3.15.0
-python-docx==0.8.11
-
-# Audio processing (file-based)
-speechrecognition==3.9.0
-pydub==0.25.1
-
-# File uploads & requests
-python-multipart==0.0.6
-requests==2.32.0
+streamlit
+pandas
+numpy
+openpyxl
+pypdf
+python-docx
+pydub
+SpeechRecognition
+requests
