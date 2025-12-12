@@ -5,3 +5,4 @@ easyocr
 numpy
 pandas
 python-dotenv
+openpyxl
