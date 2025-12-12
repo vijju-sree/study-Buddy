@@ -1,8 +1,10 @@
 streamlit
-pdf2image
-pillow
-easyocr
-numpy
 pandas
-python-dotenv
+numpy
 openpyxl
+speechrecognition
+pydub
+python-multipart
+requests
+pypdf
+tensorflow
