@@ -1,10 +1,10 @@
-speechrecognition==3.9.0
-pypdf==3.15.0
-tensorflow==2.14.0
 streamlit==1.27.0
 pandas==2.1.1
 numpy==1.26.0
 openpyxl==3.1.2
+speechrecognition==3.9.0
 pydub==0.25.1
 python-multipart==0.0.6
 requests==2.32.0
+pypdf==3.15.0
+tensorflow-cpu==2.14.0
