@@ -9,6 +9,7 @@ EXPORT_DIR = os.path.join(BASE_DIR, "exports")
 os.makedirs(TEXT_DIR, exist_ok=True)
 os.makedirs(EXPORT_DIR, exist_ok=True)
 
+# ---------------- Helpers ----------------
 def list_texts():
     return [f for f in os.listdir(TEXT_DIR) if f.endswith(".txt")]
 
@@ -23,26 +24,30 @@ def export_all():
             z.write(os.path.join(TEXT_DIR, f), f)
     return zip_path
 
+# ---------------- RUN FUNCTION ----------------
 def run():
-    st.title("📜 Notes Manager")
+    st.title("📚 Smart Notes Generator")
 
-    # ----------- VIEW AND DELETE FILES -----------
+    # ----------- DISPLAY SAVED NOTES -----------
+    st.header("📜 Saved Notes")
     files = list_texts()
+
     for i, f in enumerate(files):
         full = os.path.join(TEXT_DIR, f)
         with open(full, "r", encoding="utf-8") as file_data:
             content = file_data.read()
 
-        with st.expander(f):
+        # Use unique keys to prevent duplicate id errors
+        with st.expander(f"{f}", expanded=False):
             st.text_area("Preview", content, height=200, key=f"text_{i}")
             if st.button(f"🗑️ Delete {f}", key=f"del_{i}"):
                 delete_file(full)
                 st.experimental_rerun()
 
-    # ----------- EXPORT ALL -----------
-    st.header("📦 Export All Text Files")
-    if st.button("Export as ZIP", key="export_zip_notes"):
+    # ----------- EXPORT ALL NOTES -----------
+    st.header("📦 Export All Notes")
+    if st.button("Export as ZIP", key="export_zip"):
         zip_file = export_all()
-        st.success("ZIP ready ✅")
+        st.success("✅ ZIP ready")
         with open(zip_file, "rb") as f:
             st.download_button("Download ZIP", f, file_name="all_texts.zip")

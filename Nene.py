@@ -5,7 +5,6 @@ from pydub import AudioSegment
 import speech_recognition as sr
 import zipfile
 
-# ------------------ Folders ------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 AUDIO_DIR = os.path.join(BASE_DIR, "audios")
 TEXT_DIR = os.path.join(BASE_DIR, "texts")
@@ -15,7 +14,7 @@ os.makedirs(AUDIO_DIR, exist_ok=True)
 os.makedirs(TEXT_DIR, exist_ok=True)
 os.makedirs(EXPORT_DIR, exist_ok=True)
 
-# ---------------- Functions ------------------
+# ---------------- Helpers ----------------
 def convert_to_wav(path):
     name, ext = os.path.splitext(path)
     if ext.lower() != ".wav":
@@ -55,28 +54,60 @@ def export_all():
             z.write(os.path.join(TEXT_DIR, f), f)
     return zip_path
 
-# ---------------- RUN FUNCTION ------------------
+# ---------------- RUN FUNCTION ----------------
 def run():
-    st.title("🎙️ Voice to Text App (File Upload Only)")
+    st.title("🎙️ Voice to Text App")
+
+    mode = st.radio("Select mode", ["Record Locally", "Upload Audio"])
+
+    audio_path = None
+    text = ""
+
+    # ----------- RECORD LOCALLY -----------
+    if mode == "Record Locally":
+        st.warning("⚠️ Live recording only works in local environment!")
+        if st.button("Start Recording"):
+            try:
+                r = sr.Recognizer()
+                mic = sr.Microphone()
+                with mic as source:
+                    st.info("🎤 Recording... Speak (max 3 mins)")
+                    r.adjust_for_ambient_noise(source)
+                    audio = r.listen(source, timeout=10, phrase_time_limit=180)
+
+                t = datetime.now().strftime("%Y%m%d_%H%M%S")
+                audio_path = os.path.join(AUDIO_DIR, f"record_{t}.wav")
+                with open(audio_path, "wb") as f:
+                    f.write(audio.get_wav_data())
+
+                text = transcribe(audio_path)
+                st.success("✅ Recording completed")
+
+                st.audio(audio_path)
+                st.text_area("Generated Text", text, height=150)
+
+            except Exception as e:
+                st.error(f"Mic not available: {e}")
 
     # ----------- UPLOAD AUDIO -----------
-    st.header("📁 Upload Audio File")
-    file = st.file_uploader("Upload audio", type=["wav", "mp3"])
+    else:
+        file = st.file_uploader("Upload audio", type=["wav", "mp3"])
+        if file:
+            audio_path = os.path.join(AUDIO_DIR, file.name)
+            with open(audio_path, "wb") as f:
+                f.write(file.getbuffer())
 
-    if file:
-        upload_path = os.path.join(AUDIO_DIR, file.name)
-        with open(upload_path, "wb") as f:
-            f.write(file.getbuffer())
+            audio_path = convert_to_wav(audio_path)
+            st.audio(audio_path)
 
-        wav_path = convert_to_wav(upload_path)
-        st.audio(wav_path)
+            text = transcribe(audio_path)
+            st.text_area("Generated Text", text, height=150)
 
-        txt = transcribe(wav_path)
-        st.text_area("Generated Text", txt, height=150, key="uploaded_text_area")
-
-        save_name = st.text_input("File name", "uploaded_text", key="uploaded_text_name")
-        if st.button("💾 Save Uploaded Text"):
-            path = save_text(save_name, txt)
+    # ----------- SAVE TEXT -----------
+    if audio_path and text:
+        filename = st.text_input("Save Text File Name", "speech_text")
+        if st.button("💾 Save Text"):
+            path = save_text(filename, text)
             st.success(f"✅ Saved: {path}")
 
     # ----------- HISTORY -----------
@@ -93,7 +124,7 @@ def run():
                 delete_file(full)
                 st.experimental_rerun()
 
-    # ----------- EXPORT -----------
+    # ----------- EXPORT ALL -----------
     st.header("📦 Export All Text Files")
     if st.button("Export as ZIP", key="export_zip"):
         zip_file = export_all()
