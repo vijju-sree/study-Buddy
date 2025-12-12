@@ -1,0 +1,17 @@
+• Sample Topics for Testing Smart Notes App: Mathematics “Unit 1: Sets and Functions” “Pythagoras Theorem” “Probability Basics” Python Programming “Python Data Types” “Loops in Python” “Functions and Modules” Science “Newton’s Laws of Motion” “Photosynthesis Process” “States of Matter” History / Social Studies “Indian Freedom Struggle” “French Revolution” “Ancient Civilizations: Egypt” General Study / Notes Practice “Time Management Tips for Students” “Healthy Study Habits” “**IMPORTANT** **FORMULA**s in Physics” 💡 Tip: For testing, write short text (~100–200 words) for a topic like “Unit 1: Python Data Types” or “Newton’s Laws of Motion”
+• Then see how your app generates bullet points with **KEY** words highlighted
+• If you want, I can also make a sample PDF with one of these topics so you can directly upload and test
+• Do you want me to create that PDF
+• You said: Okay mothan content akkada place chesi generate ante chestadhaa ChatGPT said: Yes
+• 😄 Here’s how it works step by step with your current Smart Notes app: Choose Input Type Topic Text → you directly paste/write the content of your topic in the text area
+• Upload PDF → you upload a PDF that contains the topic content
+• Content Placement If you paste text: that text is stored in the content variable
+• If you upload PDF: the app reads all pages and extracts the text into the same content variable
+• Generate Notes Click “Generate Smart Notes”
+• The app processes the content variable and creates bullet points
+• **KEY**words like **IMPORTANT**, **KEY**, **DEFINITION**, **FORMULA**, **MUST** are highlighted in bold
+• Show to User Generated notes are shown immediately in the Streamlit UI
+• You can scroll through them inside st
+• Save Notes (Optional) If you want, you can save notes as text files for later
+• They can also be exported as a ZIP of all notes
+• ✅ So, you don’t need to place the content anywhere manually—paste it or upload PDF → click button → notes generate → user sees it immediately

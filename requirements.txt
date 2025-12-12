@@ -1,0 +1,7 @@
+streamlit
+pdf2image
+pillow
+easyocr
+numpy
+pandas
+python-dotenv

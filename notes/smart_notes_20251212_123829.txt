@@ -1,0 +1,18 @@
+• ✅ Introduction to C Programming C is a powerful, fast, and widely used programming language
+• It is used in: Operating System development (Windows, Linux) Embedded systems (Arduino, Microcontrollers) Game engines Compilers System-level applications 🧩 1
+• Basic Structure of a C Program #include <stdio
+• h> int main() { printf("Hello, World
+• "); return 0; } Explanation #include <stdio
+• h> → imports standard input-output functions main() → starting point of every C program printf() → prints output return 0; → ends the program successfully 🔤 2
+• Variables in C Variables store data
+• int age = 20; // integer float marks = 87
+• 5; // decimal char grade = 'A'; // character ➕ 3
+• Operators Arithmetic + - * / % Relational > < >= <= ==
+• Control Statements If-Else int age = 18; if(age >= 18) { printf("Adult"); } else { printf("Minor"); } Switch int day = 2; switch(day) { case 1: printf("Monday"); break; case 2: printf("Tuesday"); break; default: printf("Invalid"); } 🔄 5
+• Loops in C For Loop for(int i = 1; i <= 5; i++) { printf("%d ", i); } While Loop int i = 1; while(i <= 5) { printf("%d ", i); i++; } 📚 6
+• Arrays int arr[3] = {10, 20, 30}; printf("%d", arr[0]); // Output: 10 🔤 7
+• Strings char name[] = "Vidhya"; printf("%s", name); 🧩 8
+• Functions void greet() { printf("Hello
+• "); } int main() { greet(); } 📦 9
+• Pointers (**IMPORTANT**) int x = 10; int *p = &x; printf("%d", *p); // prints 10 🏗 10
+• Structures struct student { char name[20]; int age; }; int main() { struct student s1 = {"Vidhya", 20}; printf("%s", s1

@@ -1,0 +1,14 @@
+• 🧑‍💻 Introduction to C Programming C is a general-purpose, procedural programming language developed by Dennis Ritchie at AT&T Bell Labs in 1972
+• It is one of the most widely used programming languages in the world
+• 🔥 Why is C So **IMPORTANT**
+• C is called the mother of all programming languages because: Many modern languages like C++, Java, Python, JavaScript are influenced by C Operating systems like Windows, Linux, and system-level programs are written in C Embedded systems, microcontrollers, and robotics use C heavily 🧠 Features of C Programming ✔ Simple & Efficient Easy to learn, fast to execute
+• ✔ Procedural Language Program is divided into functions
+• ✔ Portable Same code works on different machines
+• ✔ Mid-Level Language Supports both low-level (hardware) and high-level (software) operations
+• ✔ Fast Execution Very close to machine language → very fast
+• ✔ Rich Library Provides many built-in functions
+• 📚 What C Can Be Used For
+• System Programming (OS development) Game development Compilers & Interpreters Embedded systems Real-time applications IoT and robotics Memory management programs 🏗 Basic Structure of a C Program #include <stdio
+• h> int main() { printf("Hello World"); return 0; } Explanation: #include <stdio
+• h> → Header file main() → Entry point of the program printf() → Output function return 0; → End of the program 🧱 Building Blocks of C Variables Data Types (int, float, char…) Constants Operators Control statements (if, switch, loops) Functions Arrays Pointers Structures Files 🎯 Advantages of Learning C Improves logic building Foundation for learning C++, Java, Python Helps in clearing technical interviews Useful for embedded and hardware programming 📝 Short **DEFINITION** (Exam/Viva) “C is a powerful, general-purpose, procedural programming language developed by Dennis Ritchie in 1972
+• It is fast, portable, and widely used for system software, embedded systems, and real-time applications
